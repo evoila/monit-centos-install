@@ -1,6 +1,6 @@
 #!/bin/bash
 export MONIT_USER="admin"
-export MONIT_PASSWORD=e"voila"
+export MONIT_PASSWORD="evoila"
 export CHECK_PATH="/etc/monit/"
 # checks if service is installed
 if [ -a $CHECK_PATH* ]; then
