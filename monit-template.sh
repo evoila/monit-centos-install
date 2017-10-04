@@ -2,7 +2,6 @@
 export MONIT_USER="admin"
 export MONIT_PASSWORD=e"voila"
 export CHECK_PATH="/etc/monit/"
-export REPOSITORY_MONIT="https://raw.githubusercontent.com/evoila/monit-centos-install/master/"
 # checks if service is installed
 if [ -a $CHECK_PATH* ]; then
 
