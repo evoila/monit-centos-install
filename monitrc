@@ -1,0 +1,8 @@
+set daemon  30              # check services at 30 seconds intervals
+set logfile syslog
+set httpd port 2812 and
+     allow admin:evoila     # require user 'admin' with password 'evoila'
+
+check process rabbitmq-server with pidfile /run/rabbitmq/pid
+    start program = "systemctl start rabbitmq-server"
+    stop program = "rabbitmqctl stop_app && systemctl stop rabbitmq-server"
