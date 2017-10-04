@@ -3,9 +3,9 @@ echo
 echo "### Starting configuration of monit... ###"
 echo
 #starts with parameters for user and password set in monit-template.sh
-export MONIT_RMQ_PID="/run/rabbitmq/pid"
-export MONIT_RMQ_START="/etc/init.d/rabbitmq-server start"
-export MONIT_RMQ_STOP="/etc/init.d/rabbitmq-server stop"
+export MONIT_SERVICE_PID="/run/rabbitmq/pid"   #e.g. RabbitMQ
+export MONIT_SERVICE_START="/etc/init.d/rabbitmq-server start"
+export MONIT_SERVICE_STOP="/etc/init.d/rabbitmq-server stop"
 echo "monit_user = ${MONIT_USER}"
 
 #check status of monit
@@ -19,9 +19,9 @@ set logfile syslog
 set httpd port 2812 and
      allow admin:evoila     # require user 'admin' with password 'evoila'
 
-check process rabbitmq-server with pidfile $MONIT_RMQ_PID
-    start program = "$MONIT_RMQ_START"
-    stop program = "$MONIT_RMQ_STOP"
+check process rabbitmq-server with pidfile $MONIT_SERVICE_PID
+    start program = "$MONIT_SERVICE_START"
+    stop program = "$MONIT_SERVICE_STOP"
 " > /etc/monit/monitrc
 
 chmod 700 /etc/monit/monitrc
