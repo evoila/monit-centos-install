@@ -19,9 +19,9 @@ set logfile syslog
 set httpd port 2812 and
      allow admin:evoila     # require user 'admin' with password 'evoila'
 
-check process rabbitmq-server with pidfile $MONIT_SERVICE_PID
-    start program = "$MONIT_SERVICE_START"
-    stop program = "$MONIT_SERVICE_STOP"
-" > /etc/monit/monitrc
+check process rabbitmq with pidfile $MONIT_SERVICE_PID
+    start program = ""$MONIT_SERVICE_START""
+    stop program = ""$MONIT_SERVICE_STOP""
+" > /etc/monit.d/monitrc
 
-chmod 700 /etc/monit/monitrc
+chmod 700 /etc/monit.d/monitrc
